@@ -1,7 +1,10 @@
 #!/bin/bash
 source default.env
 
+OS=$(uname)
 ARCH=$(uname -m)
+LABELS=$OS-$ARCH
+
 COMPOSE=docker-compose-mac.yml
 if [ $ARCH == 'x86_64' ]; then
   COMPOSE=docker-compose.yml
@@ -19,6 +22,7 @@ ORG_NAME=$ORG_NAME
 RUNNER_SCOPE=$RUNNER_SCOPE
 DOCKER_NAME=$DOCKER_NAME
 RUNNER_WORKDIR=$RUNNER_WORKDIR
+LABELS=$LABELS
 EOF
 
 cp $COMPOSE "$ORG_NAME/docker-compose.yml"
