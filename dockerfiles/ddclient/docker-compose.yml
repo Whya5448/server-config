@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  ddclient:
+    image: linuxserver/ddclient:3.9.1
+    container_name: ddclient
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Seoul
+    volumes:
+      - ./config:/config
+    restart: always
